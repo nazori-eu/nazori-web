@@ -1,5 +1,5 @@
 +++
-categories = ["Raspberry", "Server"]
+categories = ["Wireless attack"]
 date = "2020-12-03"
 title = "WPA Cracking"
 type = ["posts","post"]

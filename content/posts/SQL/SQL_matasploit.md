@@ -1,5 +1,5 @@
 +++
-categories = ["Pentest", "Web"]
+categories = ["Metasploitable", "SQL"]
 date = "2021-02-13"
 title = "SQL basics"
 type = ["posts","post"]

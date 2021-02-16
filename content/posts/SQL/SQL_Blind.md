@@ -1,14 +1,11 @@
----
-title: Blind SQL
-date: 2021-02-15 09:00:00
-tags:
-    - SQL
-categories:
-- notes
-keywords:
-    - SQL
-    - attack
----
++++
+categories = ["Metasploitable", "SQL"]
+date = "2021-02-15"
+title = "SQL Get Injection"
+type = ["posts","post"]
+[ author ]
+  name = "nazori"
++++
 
 
 Blind SQL (Structured Query Language) injection is a type of SQL Injection attack that asks the database true or false questions and determines the answer based on the applications response. This attack is often used when the web application is configured to show generic error messages, but has not mitigated the code that is vulnerable to SQL injection.
