@@ -1,6 +1,6 @@
-baseURL = "https://example.com"
+baseURL = "https://nazori.eu"
 languageCode = "en-us"
-title = "Nazori personal blog"
+title = "Nazori"
 theme = "cactus"
 copyright = " " # cactus will use title if copyright is not set
 disqusShortname = "example" # Used when comments is enabled. Cactus will use site title if not set
@@ -43,7 +43,7 @@ weight = 4
   googleAnalyticsAsync = true # use asynchronous tracking. Synchronous tracking by default
 
   # Home page settings
-  description = " Welcome."
+  description = " Welcome to my personal educational blog."
   mainSection = "posts" # your main section
   showAllPostsOnHomePage = false # default
   postsOnHomePage = 5 # this option will be ignored if showAllPostsOnHomePage is set to true
@@ -64,11 +64,11 @@ weight = 4
   # the value of name should be an valid font awesome icon name (brands type)
   # https://fontawesome.com/icons?d=gallery&s=brands
   [[params.social]]
-    name = "github"
-    link = "https://github.com/gohugoio"
+    name = "telegram"
+    link = "https://t.me/juaireg"
   [[params.social]]
-    name = "linkedin"
-    link = "https://www.linkedin.com/company/github/"
+    name = "spotify"
+    link = "https://open.spotify.com/artist/66C5GaX1GUfZTTfQvzcYR6?si=KJasyOLyRSKJgpEUdhf_7g"
   [[params.social]]
     name = "email"
-    link = "example@example.com"  # no need for "mailto:" in the head
+    link = "juaireg@gmail.com"  # no need for "mailto:" in the head

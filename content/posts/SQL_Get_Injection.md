@@ -1,5 +1,5 @@
 +++
-categories = ["Pentest", "Web"]
+tags = ["Pentest", "Web"]
 date = "2021-02-14"
 title = "SQL Get Injection"
 type = ["posts","post"]
